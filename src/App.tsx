@@ -8,7 +8,7 @@ function App() {
     <Header />
     <main>
       <h2>Task-Board</h2>
-      <TaskCard title="Skapa Dashboard" />
+      <TaskCard title="Skapa Dashboard" id={1}/>
       </main>
       <Footer />
       </>

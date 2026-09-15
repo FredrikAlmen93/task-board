@@ -1,8 +1,9 @@
 type TaskCardProps = {
     title: string;
+    id: number;
 };
 
-function  TaskCard ({title}: TaskCardProps) {
+function  TaskCard ({title, id}: TaskCardProps) {
     return (
         <article>
             <p>Frontend</p>
