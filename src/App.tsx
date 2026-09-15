@@ -12,9 +12,25 @@ function App() {
           title="Skapa Dashboard"
           id={1}
           description="Bygg en enkel dashboard med React."
-          asignee="Fredrik"
+          assignee="Fredrik"
           category="Frontend"
           priority="Hög"
+        />
+        <TaskCard
+          title="Skapa design"
+          id={2}
+          description="Bestäm färger och layout för applikationen."
+          assignee="Erik"
+          category="Design"
+          priority="Medium"
+        />
+        <TaskCard
+          title="Skriva tester"
+          id={3}
+          description="Skriv tester för applikationens komponenter."
+          assignee="Miranda"
+          category="Testning"
+          priority="Låg"
         />
       </main>
       <Footer />
