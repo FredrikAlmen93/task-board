@@ -1,6 +1,15 @@
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+
 function App() {
   return (
-    <h1>Task-Board</h1>
+    <>
+    <Header />
+    <main>
+      <h2>Task-Board</h2>
+      </main>
+      <Footer />
+      </>
   );
 }
 export default App;
