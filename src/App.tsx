@@ -14,6 +14,7 @@ function App() {
           description="Bygg en enkel dashboard med React."
           asignee="Fredrik"
           category="Frontend"
+          priority="Hög"
         />
       </main>
       <Footer />

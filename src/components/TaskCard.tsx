@@ -4,6 +4,7 @@ type TaskCardProps = {
   description: string;
   asignee: string;
   category: string;
+  priority: string;
 };
 
 function TaskCard({
@@ -12,6 +13,7 @@ function TaskCard({
   description,
   asignee,
   category,
+  priority,
 }: TaskCardProps) {
   return (
     <article>
@@ -19,7 +21,7 @@ function TaskCard({
       <h3>{title}</h3>
       <p>{description}</p>
       <p>Ansvarig: {asignee}</p>
-      <p>Prioritet: Hög</p>
+      <p>Prioritet: {priority}</p>
     </article>
   );
 }
