@@ -9,7 +9,6 @@ type TaskCardProps = {
 
 function TaskCard({
   title,
-  id,
   description,
   assignee,
   category,
