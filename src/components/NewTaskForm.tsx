@@ -13,16 +13,28 @@ function NewTaskForm({ onCreateTask }: NewTaskFormProps) {
   const [category, setCategory] = useState("");
   const [prioritet, setprioritet] = useState("Låg");
 
-  const handleSubmit = (event: React.SubmitEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    onCreateTask({
+    const newTask: NewTask = {
       title,
       description,
       assignee,
       category,
       prioritet,
+    };
+
+    const response = await fetch("http://localhost:3001/api/tasks", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newTask),
     });
+
+    const task = await response.json();
+
+    onCreateTask(task);
   };
 
   return (
