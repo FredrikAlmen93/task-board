@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { NewTask, Task } from "./types/Task";
 import NewTaskForm from "./components/NewTaskForm";
 import Header from "./components/Header";
@@ -6,9 +6,15 @@ import Footer from "./components/Footer";
 import TaskCard from "./components/TaskCard";
 import Column from "./components/Column";
 
-
 function App() {
-  const [tasks, setTasks] = useState<Task[]>(InitialTasks);
+  const [tasks, setTasks] = useState<Task[]>([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3001/api/tasks")
+      .then((response) => response.json())
+      .then((data) => setTasks(data));
+  }, []);
+
   const handleCreateTask = (newTask: NewTask) => {
     const task: Task = {
       id: tasks.length + 1,
@@ -16,7 +22,7 @@ function App() {
       status: "To-Do",
     };
     setTasks([...tasks, task]);
-  }
+  };
   const todoTasks = tasks.filter((task) => task.status === "To-Do");
   const inProgressTasks = tasks.filter((task) => task.status === "In Progress");
   const doneTasks = tasks.filter((task) => task.status === "Done");
