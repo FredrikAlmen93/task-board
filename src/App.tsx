@@ -5,40 +5,53 @@ import TaskCard from "./components/TaskCard";
 import Column from "./components/Column";
 
 function App() {
+  const todoTasks = tasks.filter((task) => task.status === "To-Do");
+  const inProgressTasks = tasks.filter((task) => task.status === "In Progress");
+  const doneTasks = tasks.filter((task) => task.status === "Done");
+
   return (
     <>
       <Header />
       <main>
         <div>
           <Column title="To-Do">
-            <TaskCard
-              title="Skapa Dashboard"
-              id={1}
-              description="Bygg en enkel dashboard med React."
-              assignee="Fredrik"
-              category="Frontend"
-              priority="Hög"
-            />
+            {todoTasks.map((task) => (
+              <TaskCard
+                key={task.id}
+                id={task.id}
+                title={task.title}
+                description={task.description}
+                assignee={task.assignee}
+                category={task.category}
+                priority={task.priority}
+              />
+            ))}
           </Column>
           <Column title="In Progress">
-            <TaskCard
-              title="Skapa design"
-              id={2}
-              description="Bestäm färger och layout för applikationen."
-              assignee="Erik"
-              category="Design"
-              priority="Medium"
-            />
+            {inProgressTasks.map((task) => (
+              <TaskCard
+                key={task.id}
+                id={task.id}
+                title={task.title}
+                description={task.description}
+                assignee={task.assignee}
+                category={task.category}
+                priority={task.priority}
+              />
+            ))}
           </Column>
           <Column title="Done">
-            <TaskCard
-              title="Skapa backend"
-              id={3}
-              description="Bygg en enkel backend med Node.js."
-              assignee="Anna"
-              category="Backend"
-              priority="Låg"
-            />
+            {doneTasks.map((task) => (
+              <TaskCard
+                key={task.id}
+                id={task.id}
+                title={task.title}
+                description={task.description}
+                assignee={task.assignee}
+                category={task.category}
+                priority={task.priority}
+              />
+            ))}
           </Column>
         </div>
       </main>
