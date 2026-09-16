@@ -16,12 +16,7 @@ function App() {
   }, []);
 
   const handleCreateTask = (newTask: NewTask) => {
-    const task: Task = {
-      id: tasks.length + 1,
-      ...newTask,
-      status: "To-Do",
-    };
-    setTasks([...tasks, task]);
+    setTasks([...tasks, newTask as Task]);
   };
   const todoTasks = tasks.filter((task) => task.status === "To-Do");
   const inProgressTasks = tasks.filter((task) => task.status === "In Progress");
