@@ -1,9 +1,9 @@
 import { useState } from "react";
 import type React from "react";
-import type { NewTask } from "../types/Task";
+import type { NewTask, Task } from "../types/Task";
 
 type NewTaskFormProps = {
-  onCreateTask: (newTask: NewTask) => void;
+  onCreateTask: (task: Task) => void;
 };
 
 function NewTaskForm({ onCreateTask }: NewTaskFormProps) {
