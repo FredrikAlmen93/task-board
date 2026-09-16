@@ -24,17 +24,25 @@ function NewTaskForm({ onCreateTask }: NewTaskFormProps) {
       prioritet,
     };
 
-    const response = await fetch("http://localhost:3001/api/tasks", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newTask),
-    });
+    try {
+      const response = await fetch("http://localhost:3001/api/tasks", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newTask),
+      });
 
-    const task = await response.json();
+      if (!response.ok) {
+        throw new Error("Failed to create task");
+      }
 
-    onCreateTask(task);
+      const task: Task = await response.json();
+
+      onCreateTask(task);
+    } catch (error) {
+      console.error("Error creating task:", error);
+    }
   };
 
   return (
