@@ -1,11 +1,22 @@
-import type { Task } from "./types/Task";
+import { useState } from "react";
+import type { NewTask, Task } from "./types/Task";
 import NewTaskForm from "./components/NewTaskForm";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import TaskCard from "./components/TaskCard";
 import Column from "./components/Column";
 
+
 function App() {
+  const [tasks, setTasks] = useState<Task[]>(InitialTasks);
+  const handleCreateTask = (newTask: NewTask) => {
+    const task: Task = {
+      id: tasks.length + 1,
+      ...newTask,
+      status: "To-Do",
+    };
+    setTasks([...tasks, task]);
+  }
   const todoTasks = tasks.filter((task) => task.status === "To-Do");
   const inProgressTasks = tasks.filter((task) => task.status === "In Progress");
   const doneTasks = tasks.filter((task) => task.status === "Done");
@@ -14,7 +25,7 @@ function App() {
     <>
       <Header />
       <main>
-        <NewTaskForm />
+        <NewTaskForm onCreateTask={handleCreateTask} />
         <div>
           <Column title="To-Do">
             {todoTasks.map((task) => (
@@ -62,7 +73,7 @@ function App() {
   );
 }
 
-const tasks: Task[] = [
+const InitialTasks: Task[] = [
   {
     id: 1,
     title: "Skapa Dashboard",
