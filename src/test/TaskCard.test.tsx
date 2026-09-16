@@ -11,7 +11,7 @@ describe("TaskCard", () => {
         description="Detta är en testuppgift"
         assignee="Fredrik"
         category="Testkategori"
-        priority="Hög"
+        prioritet="Hög"
       />,
     );
 

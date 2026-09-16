@@ -1,4 +1,5 @@
 import type { Task } from "./types/Task";
+import NewTaskForm from "./components/NewTaskForm";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import TaskCard from "./components/TaskCard";
@@ -13,6 +14,7 @@ function App() {
     <>
       <Header />
       <main>
+        <NewTaskForm />
         <div>
           <Column title="To-Do">
             {todoTasks.map((task) => (
@@ -23,7 +25,7 @@ function App() {
                 description={task.description}
                 assignee={task.assignee}
                 category={task.category}
-                priority={task.priority}
+                prioritet={task.prioritet}
               />
             ))}
           </Column>
@@ -36,7 +38,7 @@ function App() {
                 description={task.description}
                 assignee={task.assignee}
                 category={task.category}
-                priority={task.priority}
+                prioritet={task.prioritet}
               />
             ))}
           </Column>
@@ -49,7 +51,7 @@ function App() {
                 description={task.description}
                 assignee={task.assignee}
                 category={task.category}
-                priority={task.priority}
+                prioritet={task.prioritet}
               />
             ))}
           </Column>
@@ -67,7 +69,7 @@ const tasks: Task[] = [
     description: "Bygg en enkel dashboard med React.",
     assignee: "Fredrik",
     category: "Frontend",
-    priority: "Hög",
+    prioritet: "Hög",
     status: "To-Do",
   },
   {
@@ -76,7 +78,7 @@ const tasks: Task[] = [
     description: "Bestäm färger och layout för applikationen.",
     assignee: "Erik",
     category: "Design",
-    priority: "Medium",
+    prioritet: "Medium",
     status: "In Progress",
   },
   {
@@ -85,7 +87,7 @@ const tasks: Task[] = [
     description: "Bygg en enkel backend med Node.js.",
     assignee: "Anna",
     category: "Backend",
-    priority: "Låg",
+    prioritet: "Låg",
     status: "Done",
   },
   {
@@ -94,7 +96,7 @@ const tasks: Task[] = [
     description: "Skapa React-komponenter för applikationen.",
     assignee: "Fredrik",
     category: "Frontend",
-    priority: "Hög",
+    prioritet: "Hög",
     status: "To-Do",
   },
   {
@@ -103,7 +105,7 @@ const tasks: Task[] = [
     description: "Skriv CSS för att styla applikationen.",
     assignee: "Erik",
     category: "Design",
-    priority: "Medium",
+    prioritet: "Medium",
     status: "In Progress",
   },
   {
@@ -112,7 +114,7 @@ const tasks: Task[] = [
     description: "Testa React-komponenter för applikationen med Vitest.",
     assignee: "Fredrik",
     category: "Frontend",
-    priority: "Hög",
+    prioritet: "Hög",
     status: "To-Do",
   },
   {
@@ -121,7 +123,7 @@ const tasks: Task[] = [
     description: "Skapa ett nytt React-projekt med Create React App.",
     assignee: "Anna",
     category: "Backend",
-    priority: "Låg",
+    prioritet: "Låg",
     status: "Done",
   },
   {
@@ -130,7 +132,7 @@ const tasks: Task[] = [
     description: "Skapa en header-komponent för applikationen.",
     assignee: "Fredrik",
     category: "Frontend",
-    priority: "Hög",
+    prioritet: "Hög",
     status: "In Progress",
   },
   {
@@ -139,7 +141,7 @@ const tasks: Task[] = [
     description: "Skapa en footer-komponent för applikationen.",
     assignee: "Erik",
     category: "Design",
-    priority: "Medium",
+    prioritet: "Medium",
     status: "Done",
   },
 ];

@@ -5,7 +5,7 @@ function NewTaskForm() {
   const [description, setDescription] = useState("");
   const [assignee, setAssignee] = useState("");
   const [category, setCategory] = useState("");
-  const [priority, setPriority] = useState("");
+  const [prioritet, setprioritet] = useState("");
 
   const handleSubmit = (event: React.SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -15,7 +15,7 @@ function NewTaskForm() {
       description,
       assignee,
       category,
-      priority,
+      prioritet,
     });
   };
 
@@ -56,11 +56,11 @@ function NewTaskForm() {
         />
       </div>
       <div>
-        <label htmlFor="priority">Prioritet</label>
+        <label htmlFor="prioritet">Prioritet</label>
         <select
-          id="priority"
-          value={priority}
-          onChange={(event) => setPriority(event.target.value)}
+          id="prioritet"
+          value={prioritet}
+          onChange={(event) => setprioritet(event.target.value)}
         >
           <option value="Låg">Låg</option>
           <option value="Medium">Medium</option>
