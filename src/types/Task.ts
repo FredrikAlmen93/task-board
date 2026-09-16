@@ -9,3 +9,11 @@ export type Task = {
   prioritet: string;
   status: TaskStatus;
 };
+
+export type NewTask = {
+    title: string;
+    description: string;
+    assignee: string;
+    category: string;
+    prioritet: string;
+}
