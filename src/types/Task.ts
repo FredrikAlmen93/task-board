@@ -11,9 +11,9 @@ export type Task = {
 };
 
 export type NewTask = {
-    title: string;
-    description: string;
-    assignee: string;
-    category: string;
-    prioritet: string;
-}
+  title: string;
+  description: string;
+  assignee: string;
+  category: string;
+  prioritet: string;
+};
