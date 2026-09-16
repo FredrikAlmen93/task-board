@@ -10,9 +10,20 @@ function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/tasks")
-      .then((response) => response.json())
-      .then((data) => setTasks(data));
+    const fetchTasks = async () => {
+      try {
+        const response = await fetch("http://localhost:3001/api/tasks");
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch tasks");
+        }
+        const result: Task[] = await response.json();
+        setTasks(result);
+      } catch (error) {
+        console.error("Error fetching tasks:", error);
+      }
+    };
+    fetchTasks();
   }, []);
 
   const handleCreateTask = (newTask: Task) => {
